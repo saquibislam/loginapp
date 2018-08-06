@@ -1,0 +1,54 @@
+<%-- 
+    Document   : index
+    Created on : Jul 13, 2018, 10:32:45 AM
+    Author     : saquibul.islam
+--%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <title>[SaqApp - Login]</title>
+        <style>
+            .class-text {
+                width: 200px;
+            }
+            .class-button {
+                width: 100px;
+            }
+        </style>
+        <script type="text/javascript" src="<c:url value="/resources/static/AesUtil.js" />"></script>
+        <script type="text/javascript" src="<c:url value="/resources/static/aes.js" />"></script>
+        <script type="text/javascript" src="<c:url value="/resources/static/pbkdf2.js" />"></script>
+        <script type="text/javascript" src="<c:url value="/resources/static/login.js" />"></script>
+    </head>
+    <body>
+        <div style="width: 90%;margin-left: auto;margin-right: auto;margin-top: 100px;text-align: center;">
+        	<p><font color="red">${errorMessage}</font></p>
+            <input type="hidden" id="PassKey" value="${AES_KEY}" />
+            <form method="POST" action="login" onsubmit="return encryptLogin();">
+                <table style="margin-left: auto;margin-right: auto;">
+                    <tr>
+                        <td>Username</td>
+                        <td>:</td>
+                        <td>
+                            <input class="class-text" type="text" id="username" name="username" value="" autocomplete="off">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td>:</td>
+                        <td>
+                            <input class="class-text" type="password" id="password" name="password" value="" autocomplete="off">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="text-align: right;">
+                            <input class="class-button" type="submit" value="Login">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>
